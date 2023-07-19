@@ -37,6 +37,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   ], [pathname])
   return (
     <div className="flex h-full">
+      {/* Sidebar */}
       <div className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2">
         {/* import data from Box Components */}
         <Box className="flex flex-col gap-y-4 px-5 py-4">
@@ -56,7 +57,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       </div>
       
       {/* Main Content Page */}
-      <main>
+      <main className="w-full py-2">
         {children}
       </main>
     </div>
