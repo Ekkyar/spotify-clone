@@ -5,6 +5,8 @@ import { useMemo } from "react";
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 
+import { Song } from "@/types";
+
 // components
 import Box from "./Box";
 import SidebarItem from "./SidebarItem";
@@ -12,10 +14,12 @@ import Library from "./Library";
 
 interface SidebarProps {
   children: React.ReactNode;
-}
+  songs: Song[]
+};
 
 const Sidebar: React.FC<SidebarProps> = ({
-  children
+  children,
+  songs
 }) => {
   // get pathname
   const pathname = usePathname();
@@ -52,7 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         </Box>
         <Box className="overflow-y-auto h-full">
           {/* import data from Library Components */}
-          <Library />
+          <Library songs={songs} />
         </Box>
       </div>
       
