@@ -4,8 +4,10 @@ import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
+import { twMerge } from "tailwind-merge";
 
 import { Song } from "@/types";
+import usePlayer from "@/hooks/usePlayer";
 
 // components
 import Box from "./Box";
@@ -24,6 +26,8 @@ const Sidebar: React.FC<SidebarProps> = ({
   // get pathname
   const pathname = usePathname();
 
+  const player = usePlayer();
+
   // data that will send to sidebar item
   const routes = useMemo(() => [
     {
@@ -40,7 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     },
   ], [pathname])
   return (
-    <div className="flex h-full">
+    <div className={twMerge(`flex h-full`, player.activeId && "h-calc(100%-80px)")}>
       {/* Sidebar */}
       <div className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2">
         {/* import data from Box Components */}

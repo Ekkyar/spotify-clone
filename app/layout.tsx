@@ -11,6 +11,7 @@ import getSongsByUserId from '@/actions/getSongsByUserId'
 
 // components
 import Sidebar from '@/components/Sidebar'
+import Player from '@/components/Player'
 
 const font = Figtree({ subsets: ['latin'] })
 
@@ -38,6 +39,7 @@ export default async function RootLayout({
             <Sidebar songs={userSongs}>
               {children}
             </Sidebar>
+            <Player />
           </UserProvider>
         </SupabaseProvider>
       </body>
